@@ -12,10 +12,10 @@
   
    try
     {
-        context.BeginTransaction();
-        //insert
-        var stu = new student() { Name = "张三" + DateTime.Now.FormatDateTime(), Status = StudentStatus.yes };
-        var rowID = context.Insert(stu);
+    context.BeginTransaction();
+    //insert
+    var stu = new student() { Name = "张三" + DateTime.Now.FormatDateTime(), Status = StudentStatus.yes };
+    var rowID = context.Insert(stu);
 
     //error
     //stu = new student() { Name = null, Status = StudentStatus.yes };
@@ -81,8 +81,8 @@
     }
     catch (Exception)
     {
-        context.Rollback();
-        throw;
+       context.Rollback();
+       throw;
     }
     Assert.AreEqual(1, 1);
  }

@@ -6,7 +6,7 @@
 可配合 https://github.com/itlizhi/t4-database-to-model  生成数据库model模型
 
 
-`
+```
  using (IDBContext context = new MySqlDBContext("ormtest"))
  {
   
@@ -86,5 +86,4 @@
     }
     Assert.AreEqual(1, 1);
  }
-
-`
+```

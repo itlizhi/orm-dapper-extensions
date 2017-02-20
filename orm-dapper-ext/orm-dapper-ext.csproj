@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DapperExtensions.cs" />
     <Compile Include="DapperPagedList.cs" />
+    <Compile Include="DBContext.cs" />
     <Compile Include="IDBContext.cs" />
     <Compile Include="SqlServerDBContext.cs" />
     <Compile Include="MySqlDBContext.cs" />

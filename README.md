@@ -1,12 +1,28 @@
 # orm-dapper-extensions
 基于Dapper的一些扩展方法，支持sqlserver和mysql
 
-支持增删改查，简单linq where查询，in查询，分页
+扩展 增删改查，简单linq where查询，in查询，分页
 
 可配合 https://github.com/itlizhi/t4-database-to-model  生成数据库model模型
 
 
-`
+```
+ //工厂方法
+    [TestMethod]
+    public void Factory()
+    {
+       using (var dbContext = DBContextFactory.CreateContext("mysql"))
+       {
+           var list = dbcontext.GetAll<model>();
+           Assert.IsNotNull(list);
+       }
+     }
+
+    //依赖注入 autofac
+    var builder = new ContainerBuilder();
+    builder.RegisterType<MySqlDBContext>().As<IDBContext>().InstancePerLifetimeScope(); //MySql数据库工作单元
+
+ //基本方法
  using (IDBContext context = new MySqlDBContext("ormtest"))
  {
   
@@ -87,4 +103,5 @@
     Assert.AreEqual(1, 1);
  }
 
-`
+   
+```
